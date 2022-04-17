@@ -946,6 +946,9 @@ select {
 .prose > :where(:last-child):not(:where([class~="not-prose"] *)) {
   margin-bottom: 0;
 }
+.float-r {
+  float: left;
+}
 .fixed {
   position: fixed;
 }
@@ -1100,12 +1103,16 @@ select {
 .h-20 {
   height: 5rem;
 }
+.h-72 {
+  height: 18rem;
+}
 .h-80 {
   height: 20rem;
 }
 .h-full {
   height: 100%;
 }
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1133,6 +1140,9 @@ select {
 .w-48 {
   width: 12rem;
 }
+.w-36 {
+  width: 9rem;
+}
 .w-auto {
   width: auto;
 }
@@ -1156,6 +1166,9 @@ select {
 }
 .max-w-screen-xl {
   max-width: 1280px;
+}
+.max-w-5xl {
+  max-width: 64rem;
 }
 .max-w-7xl {
   max-width: 80rem;
@@ -1426,6 +1439,9 @@ select {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.object-center {
+  object-position: center;
+}
 .p-2 {
   padding: 0.5rem;
 }
@@ -1558,6 +1574,10 @@ select {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+.text-3xl	{
+  font-size: 2rem; /* 30px */
+  line-height: 2.25rem; /* 36px */
 }
 .text-4xl {
   font-size: 2.25rem; /* 36px */
@@ -2197,6 +2217,10 @@ select {
 
   .lg\:col-span-4 {
     grid-column: span 4 / span 4;
+  }
+
+  .lg\:col-span-2 {
+    grid-column: span 2 / span 2;
   }
 
   .lg\:grid-cols-3 {
