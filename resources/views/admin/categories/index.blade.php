@@ -21,7 +21,7 @@
       <a href="{{route('admin.categories.create')}}" class="btn btn-secondary">Add categories</a>
     </div>
     <div class="card-body">
-      <table class="table table-stripe">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>ID</th>
