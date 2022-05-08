@@ -10,6 +10,7 @@
   <div class="card">
     <div class="card-body">
       {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off']) !!}
+        {!! Form::hidden('user_id', auth()->user()->id) !!}
         <div class="form-row mb-1">
           <div class="col-md-6">
             {!! Form::label('name', 'Name:') !!}
@@ -54,6 +55,13 @@
 
             </label>
           @endforeach
+
+          @error('tags')
+            <hr>
+            <span class="text-danger">
+              {{ $message }}
+            </span>
+          @enderror
         </div>
                 
         <div class="form-group">
@@ -68,6 +76,12 @@
             {!! Form::radio('status', 2) !!}
             Publish
           </label>
+          @error('status')
+            <hr>
+            <span class="text-danger">
+              {{ $message }}
+            </span>
+          @enderror
         </div>
         
         <div class="form-row mb-2">
@@ -75,11 +89,23 @@
           <div class="col-md-6">
             {!! Form::label('extract', 'Extract:') !!}
             {!! Form::textarea('extract', null, ['class'=> 'form-control']) !!}
+            @error('extract')
+            <span class="text-danger">
+              {{ $message }}
+            </span>
+           @enderror
+          
           </div>
-
           <div class="col-md-6">
             {!! Form::label('body', 'Body of post:') !!}
+            
             {!! Form::textarea('body', null, ['class'=> 'form-control']) !!}
+            @error('body')
+            <span class="text-danger">
+              {{ $message }}
+            </span>
+           @enderror
+          
           </div>
 
         </div>
