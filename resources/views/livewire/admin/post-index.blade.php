@@ -2,6 +2,8 @@
 
   <div class="card-header">
     <input wire:model="search" type="text" class="form-control" placeholder="Search...">
+    <a href="{{route('admin.posts.create')}}" class="btn btn-secondary mt-2">Add Post</a>
+
   </div>
     @if ( $posts->count() )
 
