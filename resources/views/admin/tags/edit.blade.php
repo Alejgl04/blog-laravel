@@ -3,7 +3,7 @@
 @section('title', 'Blog AG | Dashboard of Blogger')
 
 @section('content_header')
-    <h1>Update etiqueta</h1>
+    <h1>Update Tag</h1>
 @stop
 
 @section('content')
