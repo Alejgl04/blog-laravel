@@ -165,6 +165,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        /*Include class*/
+        CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider::class,
+
 
         /*
          * Package Service Providers...
