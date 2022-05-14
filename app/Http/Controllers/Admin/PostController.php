@@ -48,10 +48,10 @@ class PostController extends Controller
       $post = Post::create($request->all());
       
       if ( $request->file('file') ) {
-        $url = Cloudinary::upload($request->file('file')->getRealPath(), [
-          'folder' => 'posts'
-        ])->getSecurePath();
-        // $url = Storage::put('public/posts', $request->file('file'));
+        // $url = Cloudinary::upload($request->file('file')->getRealPath(), [
+        //   'folder' => 'posts'
+        // ])->getSecurePath();
+        $url = Storage::put('public/posts', $request->file('file'));
         $post->image()->create([
           'url' => $url
         ]);
