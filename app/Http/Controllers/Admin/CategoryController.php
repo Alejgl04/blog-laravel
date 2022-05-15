@@ -44,7 +44,7 @@ class CategoryController extends Controller
         'slug' => 'required|unique:categories'
       ]);
       $category = Category::create( $request->all() );
-      return redirect()->route('admin.categories.edit', $category)->with('info', 'the category has been successfully created');
+      return redirect()->route('admin.categories.edit', $category)->with('info', 'The category has been successfully created');
     }
 
     /**
@@ -84,7 +84,7 @@ class CategoryController extends Controller
         'slug' => "required|unique:categories,slug,$category->id"
       ]);
       $category->update( $request->all() );
-      return redirect()->route('admin.categories.edit', $category)->with('info', 'the category has been successfully updated');
+      return redirect()->route('admin.categories.edit', $category)->with('info', 'The category has been successfully updated');
     }
 
     /**
@@ -96,6 +96,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
       $category->delete();
-      return redirect()->route('admin.categories.index')->with('info', 'the category has been successfully deleted');
+      return redirect()->route('admin.categories.index')->with('info', 'The category has been successfully deleted');
     }
 }

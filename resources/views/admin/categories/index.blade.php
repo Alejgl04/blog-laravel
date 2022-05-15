@@ -8,7 +8,7 @@
 
 @section('content')
   <div class="row text-center">
-    <div class="col-md-6">
+    <div class="col-lg-12">
       @if (session('info'))
       <div class="alert alert-success"> 
         <strong>{{ session('info') }}</strong>

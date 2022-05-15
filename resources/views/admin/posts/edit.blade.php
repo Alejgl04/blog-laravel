@@ -7,12 +7,16 @@
 @stop
 
 @section('content')
-  <div class="card">
-    @if (session('info'))
+  <div class="row text-center">
+    <div class="col-lg-12">
+      @if (session('info'))
       <div class="alert alert-success"> 
         <strong>{{ session('info') }}</strong>
       </div>
-    @endif
+      @endif
+    </div>
+  </div>
+  <div class="card">
     <div class="card-body">
       {!! Form::model( $post,['route' => ['admin.posts.update', $post], 'autocomplete' => 'off', 'files' => true, 'method' => 'put']) !!}
           

@@ -7,25 +7,26 @@
 @stop
 
 @section('content')
-<div class="row">
-  <div class="col-md-8">
-    @if (session('info'))
-    <div class="alert alert-success"> 
-      <strong>{{ session('info') }}</strong>
-    </div>
-    @endif
-    <div class="card">
-      <div class="card-body">
-        {!! Form::model( $tag, ['route' => ['admin.tags.update', $tag], 'method' => 'put']) !!}
 
-          @include('admin.tags.partials.form')
-          {!! Form::submit('Update Tag', ['class' => 'btn btn-default']) !!}
-  
-        {!! Form::close() !!}
+  <div class="row text-center">
+    <div class="col-lg-12">
+      @if (session('info'))
+      <div class="alert alert-success"> 
+        <strong>{{ session('info') }}</strong>
       </div>
+      @endif
     </div>
   </div>
-</div>
+  <div class="card">
+    <div class="card-body">
+      {!! Form::model( $tag, ['route' => ['admin.tags.update', $tag], 'method' => 'put']) !!}
+
+        @include('admin.tags.partials.form')
+        {!! Form::submit('Update Tag', ['class' => 'btn btn-default']) !!}
+
+      {!! Form::close() !!}
+    </div>
+  </div>
 @stop
 @section('js')
     <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
