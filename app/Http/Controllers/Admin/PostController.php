@@ -48,10 +48,10 @@ class PostController extends Controller
       $post = Post::create($request->all());
       
       if ( $request->file('file') ) {
-        // $url = Cloudinary::upload($request->file('file')->getRealPath(), [
-        //   'folder' => 'posts'
-        // ])->getSecurePath();
-        $url = Storage::put('public/posts', $request->file('file'));
+        $url = Cloudinary::upload($request->file('file')->getRealPath(), [
+          'folder' => 'posts'
+        ])->getSecurePath();
+        // $url = Storage::put('public/posts', $request->file('file'));
         $post->image()->create([
           'url' => $url
         ]);
@@ -100,9 +100,13 @@ class PostController extends Controller
       $post->update($request->all());
 
       if( $request->file('file') ) {
-        $url = Storage::put('public/posts', $request->file('file'));
+        $url = Cloudinary::upload($request->file('file')->getRealPath(), [
+          'folder' => 'posts'
+        ])->getSecurePath();
+        // $url = Storage::put('public/posts', $request->file('file'));
         if( $post->image ) {
-          Storage::delete( $post->image->url );
+          Cloudinary::destroy( $post->image->url);
+          // Storage::delete( $post->image->url );
 
           $post->image->update([
             'url' => $url
