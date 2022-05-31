@@ -21,23 +21,27 @@
       </div>
       {{-- contenido relacionado --}}
       <aside>
-        <h1 class="text-2x1 font-bold text-gray-600 mb-4">Más en {{ $post->category->name }} </h1>
-        <ul>
-          @foreach ( $equalPost as $postes )
-            <li class="mb-4">
-              <a href="{{ route('posts.show', $postes) }}" class="">
-                @if ( $postes->image )
-                  <img class="w-36 h-20 object-cover object-center" src="{{Storage::url( $postes->image->url )}}" alt="{{ $postes->name }}" style="    width: 200px;
-                  height: 6rem;">
-                @else
-                  <img class="w-full h-72 object-cover object-center" src="https://cdn.pixabay.com/photo/2022/01/22/09/42/buildings-6956678_960_720.jpg" alt="" style="    width: 200px;
-                  height: 6rem;">
-                @endif
-                <span class="ml-2 text-gray-600"> {{ $postes->name }} </span>
-              </a>  
-            </li>   
-          @endforeach
-        </ul>
+        @if ($equalPost->count() === 0)
+          {{-- Nothing to show --}}
+        @else
+          <h1 class="text-2x1 font-bold text-gray-600 mb-4">Más en {{ $post->category->name }} </h1>
+          <ul>
+            @foreach ( $equalPost as $postes )
+              <li class="mb-4">
+                <a href="{{ route('posts.show', $postes) }}" class="">
+                  @if ( $postes->image )
+                    <img class="w-36 h-20 object-cover object-center" src="{{Storage::url( $postes->image->url )}}" alt="{{ $postes->name }}" style="    width: 200px;
+                    height: 6rem;">
+                  @else
+                    <img class="w-full h-72 object-cover object-center" src="https://cdn.pixabay.com/photo/2022/01/22/09/42/buildings-6956678_960_720.jpg" alt="" style="    width: 200px;
+                    height: 6rem;">
+                  @endif
+                  <span class="ml-2 text-gray-600"> {{ $postes->name }} </span>
+                </a>  
+              </li>   
+            @endforeach              
+          </ul>
+        @endif
       </aside>
     </div>
   </div>
