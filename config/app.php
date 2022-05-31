@@ -167,6 +167,8 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         /*Include class*/
         CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+
 
 
         /*
