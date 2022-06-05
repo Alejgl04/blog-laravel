@@ -251,6 +251,11 @@ return [
             'route'         => 'admin.home',
             'icon'        => 'fas fa-fw fa-tachometer-alt',
         ],
+        [
+            'text'        => 'Users',
+            'route'         => 'admin.users.index',
+            'icon'        => 'fas fa-fw fa-users',
+        ],
         ['header' => 'ADMINISTRATOR'],
         [
             'text' => 'Categories',
@@ -267,13 +272,13 @@ return [
         ],
         ['header' => 'OPTIONS BLOG'],
         [
-            'text'       => 'List of post',
+            'text'       => 'Posts',
             'route'        => 'admin.posts.index',
             'icon' => 'fas fa-fw fa-clipboard',
 
         ],
         [
-            'text'  => 'Create new post',
+            'text'  => 'New post',
             'route' => 'admin.posts.create',
             'icon'  => 'fas fa-fw fa-file',
 

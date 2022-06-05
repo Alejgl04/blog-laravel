@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Blog AG | Dashboard of Blogger')
+@section('title', 'Blog AG | Posts of Blog')
 
 @section('content_header')
     <h1>List of Posts</h1>
