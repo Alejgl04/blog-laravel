@@ -23,6 +23,11 @@ class RoleSeeder extends Seeder
 
       Permission::create(['name' => 'admin.home', 'description' => 'Dashboard'])->syncRoles([$roleAdm, $rolBlog]);
 
+      Permission::create(['name' => 'admin.roles.index', 'description' => 'List Roles'])->syncRoles([$roleAdm]);
+      Permission::create(['name' => 'admin.roles.create', 'description' => 'Create Roles'])->syncRoles([$roleAdm]);
+      Permission::create(['name' => 'admin.roles.edit', 'description' => 'Update Roles'])->syncRoles([$roleAdm]);
+      Permission::create(['name' => 'admin.roles.destroy', 'description' => 'Remove Roles'])->syncRoles([$roleAdm]);
+
       Permission::create(['name' => 'admin.users.index', 'description' => 'List Users'])->syncRoles([$roleAdm]);
       Permission::create(['name' => 'admin.users.edit', 'description' => 'Assign rol'])->syncRoles([$roleAdm]);
 
