@@ -26,12 +26,12 @@ class RoleSeeder extends Seeder
       Permission::create(['name' => 'admin.users.index', 'description' => 'List Users'])->syncRoles([$roleAdm]);
       Permission::create(['name' => 'admin.users.edit', 'description' => 'Assign rol'])->syncRoles([$roleAdm]);
 
-      Permission::create(['name' => 'admin.categories.index', 'description' => 'List Categories'])->syncRoles([$roleAdm]);
+      Permission::create(['name' => 'admin.categories.index', 'description' => 'List Categories'])->syncRoles([$roleAdm,$rolBlog]);
       Permission::create(['name' => 'admin.categories.create', 'description' => 'Create Categories'])->syncRoles([$roleAdm]);
       Permission::create(['name' => 'admin.categories.edit', 'description' => 'Update Categories'])->syncRoles([$roleAdm]);
       Permission::create(['name' => 'admin.categories.destroy', 'description' => 'Remove Categories'])->syncRoles([$roleAdm]);
 
-      Permission::create(['name' => 'admin.tags.index', 'description' => 'List Labels'])->syncRoles([$roleAdm]);
+      Permission::create(['name' => 'admin.tags.index', 'description' => 'List Labels'])->syncRoles([$roleAdm,$rolBlog]);
       Permission::create(['name' => 'admin.tags.create', 'description' => 'Create Labels'])->syncRoles([$roleAdm]);
       Permission::create(['name' => 'admin.tags.edit', 'description' => 'Update Labels'])->syncRoles([$roleAdm]);
       Permission::create(['name' => 'admin.tags.destroy', 'description' => 'Remove Labels'])->syncRoles([$roleAdm]);
