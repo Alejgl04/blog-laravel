@@ -1399,6 +1399,12 @@ select {
 .bg-pink-600 {
   background-color: rgb(219 39 119);
 }
+.bg-blue-600 {
+  background-color: rgb(37 99 235);
+}
+.bg-purple-600 {
+  background-color: rgb(147 51 234);
+}
 .bg-red-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
