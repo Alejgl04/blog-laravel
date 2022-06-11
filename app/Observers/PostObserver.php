@@ -29,9 +29,15 @@ class PostObserver
   public function deleting(Post $post)
   {
     if ( $post->image ) {
-      Cloudinary::delete( $post->image->url );
+      if( env('APP_ENV')=='local' ){
+        Storage::delete( $post->image->url );
+      
+      }
+      else{
+        Cloudinary::delete( $post->image->url );
 
-      // Storage::delete( $post->image->url );
+      }
+
     }     
   }
 }

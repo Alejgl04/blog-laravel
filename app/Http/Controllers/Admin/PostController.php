@@ -46,15 +46,23 @@ class PostController extends Controller
   public function store(PostRequest $request)
   {
     $post = Post::create($request->all());
-
+    
     if ($request->file('file')) {
-      $url = Cloudinary::upload($request->file('file')->getRealPath(), [
-        'folder' => 'posts'
-      ])->getSecurePath();
-      // $url = Storage::put('public/posts', $request->file('file'));
-      $post->image()->create([
-        'url' => $url
-      ]);
+      if( env('APP_ENV')=='local' ){
+        $url = Storage::put('posts', $request->file('file'));
+        $post->image()->create([
+          'url' => $url
+        ]);
+      }
+      else{
+        $url = Cloudinary::upload($request->file('file')->getRealPath(), [
+          'folder' => 'posts'
+        ])->getSecurePath();
+        $post->image()->create([
+          'url' => $url
+        ]);
+      }
+
     }
 
     Cache::flush();
@@ -80,27 +88,36 @@ class PostController extends Controller
     $post->update($request->all());
 
     if ($request->file('file')) {
-      $url = Cloudinary::upload($request->file('file')->getRealPath(), [
-        'folder' => 'posts'
-      ])->getSecurePath();
-      // $url = Storage::put('public/posts', $request->file('file'));
-      if ($post->image) {
+      if( env('APP_ENV')=='local' ){
+        $url = Storage::put('posts', $request->file('file'));
+        if ($post->image) {  
+          Storage::delete($post->image->url);
+  
+          $post->image->update([
+            'url' => $url
+          ]);
+        } else {
+          $post->image()->create([
+            'url' => $url
+          ]);
+        }
+      }
+      else {
+        $url = Cloudinary::upload($request->file('file')->getRealPath(), [
+          'folder' => 'posts'
+        ])->getSecurePath();
 
-        $stringCloudinary = preg_split("/\//", $post->image->url);
-        $idCloudinary = explode('.',$stringCloudinary[0]);
-        var_dump($idCloudinary);
-        exit;
-        Cloudinary::destroy( $idCloudinary[0] );
-
-        // Storage::delete($post->image->url);
-
-        $post->image->update([
-          'url' => $url
-        ]);
-      } else {
-        $post->image()->create([
-          'url' => $url
-        ]);
+        if ($post->image) {
+  
+          Cloudinary::destroy( $post->image->url );
+          $post->image->update([
+            'url' => $url
+          ]);
+        } else {
+          $post->image()->create([
+            'url' => $url
+          ]);
+        }
       }
     }
 
