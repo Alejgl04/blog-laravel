@@ -34,7 +34,7 @@ class PostObserver
       
       }
       else{
-        Cloudinary::delete( $post->image->url );
+        Cloudinary::destroy( $post->image->url );
 
       }
 
