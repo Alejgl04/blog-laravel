@@ -3,6 +3,7 @@
 namespace App\Observers;
 use App;
 use App\Models\Post;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Support\Facades\Storage;
 
 class PostObserver
@@ -28,7 +29,9 @@ class PostObserver
   public function deleting(Post $post)
   {
     if ( $post->image ) {
-      Storage::delete( $post->image->url );
+      Cloudinary::delete( $post->image->url );
+
+      // Storage::delete( $post->image->url );
     }     
   }
 }
