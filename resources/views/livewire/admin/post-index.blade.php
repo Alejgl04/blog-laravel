@@ -13,6 +13,8 @@
             <tr>
               <th>Id</th>
               <th>Name</th>
+              <th>Category</th>
+              <th>Status</th>
               <th colspan="2"></th>
             </tr>
           </thead>
@@ -21,6 +23,18 @@
               <tr>
                 <td>{{$post->id}}</td>
                 <td>{{$post->name}}</td>
+                <td>{{$post->category->name}}</td>
+
+                @if ( $post->status == 1 )
+                 <td>Preview </td>
+                    
+                @else
+                <td>Published 
+                  <span style="color: green">
+                    <i class="fas fa-check-circle"></i>
+                  </span>
+                </td>
+                @endif
                 <td width="10px">
                   <a href="{{route('admin.posts.edit', $post)}}" class="btn btn-primary btn-sm">Update</a>
                 </td>
