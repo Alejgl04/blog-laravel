@@ -10,6 +10,10 @@ use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 Route::get('', [HomeController::class, 'index'])->middleware('can:admin.home')->name('admin.home');
 
+route::get('removee', function (){
+  Cloudinary::destroy('nuvccfazrzcogzqcrt9w');
+});
+
 Route::resource('users', UserController::class)->only(['index','edit','update'])->names('admin.users');
 
 Route::resource('roles', RoleController::class)->names('admin.roles');
