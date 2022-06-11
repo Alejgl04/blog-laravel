@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Blog AG | Labels of Blogger')
+@section('title', 'Blog AG | Tags of Blog')
 
 @section('content_header')
     <h1>List of tags</h1>
