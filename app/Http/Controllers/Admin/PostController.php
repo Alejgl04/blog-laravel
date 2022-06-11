@@ -85,8 +85,10 @@ class PostController extends Controller
       ])->getSecurePath();
       // $url = Storage::put('public/posts', $request->file('file'));
       if ($post->image) {
-        
+
         $idCloud = preg_split("/\//", $post->image->url);
+        var_dump($idCloud[8]);
+        exit;
         Cloudinary::destroy( $idCloud[8] );
         // Storage::delete($post->image->url);
 
