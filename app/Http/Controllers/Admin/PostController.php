@@ -9,6 +9,7 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -56,6 +57,8 @@ class PostController extends Controller
       ]);
     }
 
+    Cache::flush();
+
     if ($request->tags) {
       $post->tags()->attach($request->tags);
     }
@@ -99,6 +102,8 @@ class PostController extends Controller
       $post->tags()->sync($request->tags);
     }
 
+    Cache::flush();
+
     return redirect()->route('admin.posts.edit', $post)->with('info', 'The post has been successfully updated');
   }
 
@@ -112,6 +117,7 @@ class PostController extends Controller
   {
     $this->authorize('author', $post);
     $post->delete();
+    Cache::flush();
     return redirect()->route('admin.posts.index')->with('info', 'The post has been successfully deleted');
   }
 }
