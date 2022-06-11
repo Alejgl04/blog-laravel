@@ -83,6 +83,8 @@ class PostController extends Controller
       $url = Cloudinary::upload($request->file('file')->getRealPath(), [
         'folder' => 'posts'
       ])->getSecurePath();
+      var_dump($url);
+      exit;
       // $url = Storage::put('public/posts', $request->file('file'));
       if ($post->image) {
         Cloudinary::destroy( $post->image->url );
