@@ -88,8 +88,10 @@ class PostController extends Controller
 
         $stringCloudinary = preg_split("/\//", $post->image->url);
         $idCloudinary = explode('.',$stringCloudinary[8]);
+        echo $idCloudinary;
+        exit;
         Cloudinary::destroy( $idCloudinary[0] );
-        
+
         // Storage::delete($post->image->url);
 
         $post->image->update([
