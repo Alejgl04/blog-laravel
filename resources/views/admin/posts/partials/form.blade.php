@@ -101,7 +101,13 @@
   <div class="col-md-6">
     <div class="image-wrapper">
       @isset ($post->image)
+      @if (env('APP_ENV')=='Local')
         <img id="image-background" src="{{ Storage::url($post->image->url)}}" alt="Image by default">          
+
+      @else
+        <img id="image-background" src="{{$post->image->url}}" alt="Image by default">          
+
+      @endif
       @else
         <img id="image-background" src="https://cdn.pixabay.com/photo/2022/01/22/09/42/buildings-6956678_960_720.jpg" alt="Image by default">
       @endisset
