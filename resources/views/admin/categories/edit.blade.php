@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Blog AG')
+@section('title', 'Blog AG | Category: ' . $category->name )
 
 @section('content_header')
     <h1>Update Category</h1>
