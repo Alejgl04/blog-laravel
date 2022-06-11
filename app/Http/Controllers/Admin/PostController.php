@@ -86,10 +86,10 @@ class PostController extends Controller
       // $url = Storage::put('public/posts', $request->file('file'));
       if ($post->image) {
 
-        $idCloud = preg_split("/\//", $post->image->url);
-        var_dump(explode('.',$idCloud[8]));
-        exit;
-        Cloudinary::destroy( $idCloud[8] );
+        $stringCloudinary = preg_split("/\//", $post->image->url);
+        $idCloudinary = explode('.',$stringCloudinary[8]);
+        Cloudinary::destroy( $idCloudinary[0] );
+        
         // Storage::delete($post->image->url);
 
         $post->image->update([
