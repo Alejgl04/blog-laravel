@@ -2240,6 +2240,11 @@ select {
   }
 }
 
+@media (	max-width: 500px ) {
+  .logo-mobile-laravel {
+    visibility: hidden;
+  }
+}
 @media (	max-width: 640px ) {
   .container {
     max-width: 640px;

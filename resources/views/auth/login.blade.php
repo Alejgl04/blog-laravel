@@ -2,7 +2,7 @@
   <x-guest-layout>
       <x-jet-authentication-card>
           <x-slot name="logo">
-              <x-jet-authentication-card-logo />
+            <img src="/laravel-logo.png" alt="Logo App" class="h-12 w-auto">
           </x-slot>
 
           <x-jet-validation-errors class="mb-4" />

@@ -9,7 +9,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+        <link rel="icon" type="image/png" sizes="16x16" href="/laravel-logo.png">
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
@@ -96,7 +96,7 @@
             </div>
           
             <div class="text-center p-4 py-4" style="background-color: rgba(0, 0, 0, 0.2);">
-              © 2021 Copyright:
+              © 2022 Copyright:
               <a class="text-white justify-center items-center" href="https://tailwind-elements.com/">AG blogger Test</a>
             </div>
           </footer>
