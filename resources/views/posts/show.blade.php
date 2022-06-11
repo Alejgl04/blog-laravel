@@ -10,7 +10,11 @@
       <div class="lg:col-span-2">
         <figure>
           @if ( $post->image )
-            <img class="w-full h-80 object-cover object-center " src="{{$post->image->url}}" alt="{{ $post->name }}">
+            @if (env('APP_ENV')=='local')
+              <img class="w-full h-80 object-cover object-center " src="{{Storage::url( $post->image->url )}}" alt="{{ $post->name }}">
+            @else
+              <img class="w-full h-80 object-cover object-center " src="{{ $post->image->url }}" alt="{{ $post->name }}">
+            @endif
           @else
             <img class="w-full h-72 object-cover object-center" src="https://cdn.pixabay.com/photo/2022/01/22/09/42/buildings-6956678_960_720.jpg" alt="">
           @endif
@@ -30,8 +34,13 @@
               <li class="mb-4">
                 <a href="{{ route('posts.show', $postes) }}" class="">
                   @if ( $postes->image )
-                    <img class="w-36 h-20 object-cover object-center" src="{{ $postes->image->url }}" alt="{{ $postes->name }}" style="    width: 200px;
+                    @if (env('APP_ENV')=='local')
+                      <img class="w-36 h-20 object-cover object-center" src="{{Storage::url( $postes->image->url )}}" alt="{{ $postes->name }}" style="    width: 200px;
                     height: 6rem;">
+                    @else
+                      <img class="w-36 h-20 object-cover object-center" src="{{ $postes->image->url }}" alt="{{ $postes->name }}" style="    width: 200px;
+                    height: 6rem;">
+                    @endif                  
                   @else
                     <img class="w-full h-72 object-cover object-center" src="https://cdn.pixabay.com/photo/2022/01/22/09/42/buildings-6956678_960_720.jpg" alt="" style="    width: 200px;
                     height: 6rem;">
