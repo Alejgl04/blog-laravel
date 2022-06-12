@@ -25,12 +25,15 @@
                   <td>{{$post->id}}</td>
                   <td>{{$post->name}}</td>
                   <td>{{$post->category->name}}</td>
-
+  
                   @if ( $post->status == 1 )
-                  <td>Preview </td>
+                   <td>Preview </td>
                       
                   @else
                   <td>Published 
+                    <span style="color: green">
+                      <i class="fas fa-check-circle"></i>
+                    </span>
                   </td>
                   @endif
                   <td width="10px">
