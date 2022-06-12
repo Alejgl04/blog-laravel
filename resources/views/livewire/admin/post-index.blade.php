@@ -23,14 +23,14 @@
               @foreach ($posts as $post)
                 <tr>
                   <td>{{$post->id}}</td>
-                  <td style="width: 100%!important;">{{$post->name}}</td>
+                  <td>{{$post->name}}</td>
                   <td>{{$post->category->name}}</td>
 
                   @if ( $post->status == 1 )
                   <td>Preview </td>
                       
                   @else
-                  <td style="width:200px!important;">Published 
+                  <td>Published 
                   </td>
                   @endif
                   <td width="10px">
