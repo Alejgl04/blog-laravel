@@ -9,7 +9,7 @@
 
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-responsive">
+          <table class="table">
             <thead>
               <tr>
                 <th>Id</th>
