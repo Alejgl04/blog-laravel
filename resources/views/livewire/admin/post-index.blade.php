@@ -8,47 +8,46 @@
     @if ( $posts->count() )
 
       <div class="card-body">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Category</th>
-              <th>Status</th>
-              <th colspan="2"></th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach ($posts as $post)
+        <div class="table-responsive">
+          <table class="table table-responsive">
+            <thead>
               <tr>
-                <td>{{$post->id}}</td>
-                <td>{{$post->name}}</td>
-                <td>{{$post->category->name}}</td>
-
-                @if ( $post->status == 1 )
-                 <td>Preview </td>
-                    
-                @else
-                <td>Published 
-                  <span style="color: green">
-                    <i class="fas fa-check-circle"></i>
-                  </span>
-                </td>
-                @endif
-                <td width="10px">
-                  <a href="{{route('admin.posts.edit', $post)}}" class="btn btn-primary btn-sm">Update</a>
-                </td>
-                <td width="10px">
-                  <form action="{{route('admin.posts.destroy', $post)}}" method="POST">
-                    @csrf
-                    @method('delete')
-                    <button type="submit" class="btn btn-danger btn-sm">Remove</button>
-                  </form>
-                </td>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th colspan="2"></th>
               </tr>
-            @endforeach   
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              @foreach ($posts as $post)
+                <tr>
+                  <td>{{$post->id}}</td>
+                  <td style="width: 100%!important;">{{$post->name}}</td>
+                  <td>{{$post->category->name}}</td>
+
+                  @if ( $post->status == 1 )
+                  <td>Preview </td>
+                      
+                  @else
+                  <td style="width:200px!important;">Published 
+                  </td>
+                  @endif
+                  <td width="10px">
+                    <a href="{{route('admin.posts.edit', $post)}}" class="btn btn-primary btn-sm">Update</a>
+                  </td>
+                  <td width="10px">
+                    <form action="{{route('admin.posts.destroy', $post)}}" method="POST">
+                      @csrf
+                      @method('delete')
+                      <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                    </form>
+                  </td>
+                </tr>
+              @endforeach   
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="card-footer">
         {{ $posts->links() }}
