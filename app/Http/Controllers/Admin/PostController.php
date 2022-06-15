@@ -90,7 +90,7 @@ class PostController extends Controller
     if ($request->file('file')) {
       if( env('APP_ENV')=='local' ){
         $url = Storage::put('posts', $request->file('file'));
-        if ($post->image) {  
+        if ($post->image) {
           Storage::delete($post->image->url);
   
           $post->image->update([
@@ -108,8 +108,12 @@ class PostController extends Controller
         ])->getSecurePath();
 
         if ($post->image) {
-  
-          Cloudinary::destroy( $post->image->url );
+
+          $valueUrl = parse_url($post->image->url);
+          $host = explode('/',$valueUrl['path']);
+          $public_Id = explode('.', $host[6]);
+          
+          Cloudinary::destroy( $public_Id[0] );
           $post->image->update([
             'url' => $url
           ]);

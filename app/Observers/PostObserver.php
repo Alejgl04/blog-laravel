@@ -34,8 +34,10 @@ class PostObserver
       
       }
       else{
-        Cloudinary::destroy( $post->image->url );
-
+        $valueUrl = parse_url($post->image->url);
+        $host = explode('/',$valueUrl['path']);
+        $public_Id = explode('.', $host[6]);
+        Cloudinary::destroy( $public_Id[0] );
       }
 
     }     
